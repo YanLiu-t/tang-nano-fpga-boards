@@ -1,0 +1,15 @@
+[General]
+ipc_version=4
+file=image_rom
+module=image_rom
+target_device=gw1nr9c-004
+type=ram_prom
+version=1.0
+
+[Config]
+DEPTH=10000
+LANG=0
+MEM_FILE=../../RGB_LCD_display_tt.mi
+READ=0
+RESET_MODE=true
+WIDTH=16

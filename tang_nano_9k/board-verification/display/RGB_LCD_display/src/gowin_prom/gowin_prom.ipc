@@ -1,0 +1,14 @@
+[General]
+ipc_version=4
+file=gowin_prom
+module=blk_mem_gen_0
+target_device=gw1nr9c-004
+type=ram_prom
+version=1.0
+
+[Config]
+DEPTH=10000
+LANG=0
+READ=0
+RESET_MODE=true
+WIDTH=24

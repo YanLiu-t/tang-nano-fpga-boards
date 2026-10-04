@@ -1,0 +1,21 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW1NR-9C" pn="GW1NR-LV9QN88PC6/I5">gw1nr9c-004</Device>
+    <FileList>
+        <File path="src/MAIN_TASK.v" type="file.verilog" enable="1"/>
+        <File path="src/clk_div.v" type="file.verilog" enable="1"/>
+        <File path="src/fifo_controler.v" type="file.verilog" enable="1"/>
+        <File path="src/fifo_top/fifo_top.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
+        <File path="src/lcd_driver.v" type="file.verilog" enable="1"/>
+        <File path="src/psram_memory_interface_hs/psram_memory_interface_hs.v" type="file.verilog" enable="1"/>
+        <File path="src/psram_task.v" type="file.verilog" enable="1"/>
+        <File path="src/uart_receive.v" type="file.verilog" enable="1"/>
+        <File path="src/uart_send.v" type="file.verilog" enable="1"/>
+        <File path="src/fpga_project_PSRAM_UART_for_lcd_rgb.cst" type="file.cst" enable="1"/>
+        <File path="src/fpga_project_PSRAM_UART_for_lcd_rgb.sdc" type="file.sdc" enable="1"/>
+    </FileList>
+</Project>

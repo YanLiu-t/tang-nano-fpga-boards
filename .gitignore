@@ -1,0 +1,98 @@
+# =============================================================================
+# Gowin FPGA Projects - .gitignore
+# =============================================================================
+
+# ---------- Gowin IDE 综合/布局布线输出 ----------
+impl/
+*.bin
+*.binx
+*.db
+*.fs
+*.log
+*.html
+*.txt
+*.cfg
+*.do
+*.rpt.html
+*.rpt.txt
+*.pin.html
+*.power.html
+*.tr.html
+*.timing_paths
+temp/
+
+# ---------- Gowin IDE 仿真临时文件 ----------
+sim/
+@_opt/
+vsim.wlf
+*.mpf
+*.cr.mti
+transcript
+*.vcd
+
+# ---------- Gowin IP 生成中间文件 ----------
+*.bak
+* (1).v
+* (1).cst
+* (1).gprj
+* (1).ipc
+* (1).mod
+* (1).sdc
+* (1).user
+* (1).vg
+* (1).log
+* (1).prj
+* (1).ini
+* (1).hex
+* (1).rgb
+* (1).fs
+* (1).bmp
+* (1).elf
+* (1).map
+* (1).d
+* (1).o
+
+# ---------- Gowin IDE 用户配置（含绝对路径） ----------
+*.gprj.user
+*.gprj (1).user
+
+# ---------- Cortex-M3 C 固件编译产物 ----------
+Debug/
+*.o
+*.d
+*.elf
+*.bin
+*.hex
+*.map
+
+# ---------- Eclipse/GMD IDE 配置 ----------
+.cproject
+.project
+.settings/
+
+# ---------- 编辑器 ----------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ---------- 系统文件 ----------
+Thumbs.db
+.DS_Store
+ehthumbs.db
+
+# ---------- 根目录不发的工具/文档 ----------
+Notepad++/
+Mif_Maker_V2.4_exe/
+test_ip_unuseful/
+
+# ---------- 二进制文档/工具（根目录残留） ----------
+*.pdf
+*.exe
+*.zip
+*.rar
+*.docx
+*.7z
+
+# ---------- UART HDMI 项目辅助文件 ----------
+tang_nano_4k_uart_HDMI(纯Verilog)/

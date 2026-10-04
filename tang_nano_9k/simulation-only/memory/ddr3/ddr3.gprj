@@ -1,0 +1,18 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW1NR-9C" pn="GW1NR-LV9QN88PC6/I5">gw1nr9c-004</Device>
+    <FileList>
+        <File path="src/ddr3_controler.v" type="file.verilog" enable="1"/>
+        <File path="src/ddr3_fifo_ctrl.v" type="file.verilog" enable="1"/>
+        <File path="src/ddr3_memory_interface.v" type="file.verilog" enable="1"/>
+        <File path="src/ddr3_rw.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll.v" type="file.verilog" enable="1"/>
+        <File path="src/led_disp.v" type="file.verilog" enable="1"/>
+        <File path="src/tb_top_ddr3_rw.v" type="file.verilog" enable="1"/>
+        <File path="src/test_data.v" type="file.verilog" enable="1"/>
+        <File path="src/top.v" type="file.verilog" enable="1"/>
+    </FileList>
+</Project>

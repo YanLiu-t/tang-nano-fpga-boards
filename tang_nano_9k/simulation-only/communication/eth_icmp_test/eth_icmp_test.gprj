@@ -1,0 +1,16 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW1NR-9C" pn="GW1NR-LV9QN88PC6/I5">gw1nr9c-004</Device>
+    <FileList>
+        <File path="src/crc32_d8.v" type="file.verilog" enable="1"/>
+        <File path="src/eth_ctrl.v" type="file.verilog" enable="0"/>
+        <File path="src/eth_icmp_test.v" type="file.verilog" enable="0"/>
+        <File path="src/icmp.v" type="file.verilog" enable="1"/>
+        <File path="src/icmp_rx.v" type="file.verilog" enable="1"/>
+        <File path="src/icmp_tx.v" type="file.verilog" enable="1"/>
+        <File path="src/tb_icmp.v" type="file.verilog" enable="1"/>
+    </FileList>
+</Project>

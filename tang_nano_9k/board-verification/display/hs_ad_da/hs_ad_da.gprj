@@ -1,0 +1,15 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW1NR-9C" pn="GW1NR-LV9QN88PC6/I5">gw1nr9c-004</Device>
+    <FileList>
+        <File path="src/da_wave_send.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
+        <File path="src/hs_ad_da.v" type="file.verilog" enable="1"/>
+        <File path="src/rom_256x8b/rom_256x8b.v" type="file.verilog" enable="1"/>
+        <File path="src/tb_hs_ad_da.v" type="file.verilog" enable="0"/>
+        <File path="src/hs_ad_da.cst" type="file.cst" enable="1"/>
+    </FileList>
+</Project>

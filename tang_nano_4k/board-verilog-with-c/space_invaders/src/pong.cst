@@ -1,0 +1,38 @@
+//============================================================================
+// Tang Nano 4K (GW1NSR-4C) - Pong pin constraints
+//============================================================================
+
+// Clock 27MHz (Pin 45)
+IO_LOC "clk" 45;
+IO_PORT "clk" IO_TYPE=LVCMOS33;
+
+// Reset button S1 (Pin 14 / IOB4B)
+// NOTE: Pin 14 is in Bank 3, which is powered at 1.8V on this board
+// (button pulls up to 1.8V). Must use LVCMOS15, NOT LVCMOS33.
+IO_LOC "resetn" 14;
+IO_PORT "resetn" IO_TYPE=LVCMOS15;
+
+// HDMI differential pairs (no IO_TYPE, per official 4K example; Bank 2 = 2.5V)
+IO_LOC "tmds_clk_p" 28;
+IO_LOC "tmds_clk_n" 27;
+IO_LOC "tmds_d_p[0]" 30;
+IO_LOC "tmds_d_n[0]" 29;
+IO_LOC "tmds_d_p[1]" 32;
+IO_LOC "tmds_d_n[1]" 31;
+IO_LOC "tmds_d_p[2]" 35;
+IO_LOC "tmds_d_n[2]" 34;
+
+// Keyboard 74HC165 (Bank 1, 3.3V)
+// Header P7 positions 9/10/11 (count from HDMI end), shared with DVP camera
+IO_LOC "keyboard_pl" 41;
+IO_PORT "keyboard_pl" IO_TYPE=LVCMOS33;
+IO_LOC "keyboard_cp" 42;
+IO_PORT "keyboard_cp" IO_TYPE=LVCMOS33;
+IO_LOC "keyboard_q7" 43;
+IO_PORT "keyboard_q7" IO_TYPE=LVCMOS33;
+
+// UART (optional debug) - P7 header positions 7/8
+IO_LOC "uart0_rxd" 39;
+IO_PORT "uart0_rxd" IO_TYPE=LVCMOS33;
+IO_LOC "uart0_txd" 40;
+IO_PORT "uart0_txd" IO_TYPE=LVCMOS33;

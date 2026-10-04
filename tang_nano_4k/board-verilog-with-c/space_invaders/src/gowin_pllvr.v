@@ -1,0 +1,73 @@
+//============================================================================
+// GOWIN PLLVR - PLL for Tang Nano 4K (GW1NSR-4C)
+//============================================================================
+//
+// Input : 27 MHz crystal
+// Output: 126 MHz (5x pixel clock for 640x480@60 TMDS serial clock)
+//
+// The pixel clock (25.2 MHz) is generated from this 126 MHz clock using
+// a Gowin_CLKDIV with DIV_MODE="5".
+//
+// VCO = 27 x 14 x 8 / 3 = 1008 MHz, CLKOUT = 1008 / 8 = 126 MHz
+// (official Sipeed Tang Nano 4K example parameters)
+//
+//============================================================================
+
+module Gowin_PLLVR (clkout, lock, clkin);
+
+    output clkout;
+    output lock;
+    input  clkin;
+
+    wire clkoutp_o;
+    wire clkoutd_o;
+    wire clkoutd3_o;
+    wire gw_vcc;
+    wire gw_gnd;
+
+    assign gw_vcc = 1'b1;
+    assign gw_gnd = 1'b0;
+
+    PLLVR pllvr_inst (
+        .CLKOUT  (clkout),
+        .LOCK    (lock),
+        .CLKOUTP (clkoutp_o),
+        .CLKOUTD (clkoutd_o),
+        .CLKOUTD3(clkoutd3_o),
+        .RESET   (gw_gnd),
+        .RESET_P (gw_gnd),
+        .CLKIN   (clkin),
+        .CLKFB   (gw_gnd),
+        .FBDSEL  ({gw_gnd, gw_gnd, gw_gnd, gw_gnd, gw_gnd, gw_gnd}),
+        .IDSEL   ({gw_gnd, gw_gnd, gw_gnd, gw_gnd, gw_gnd, gw_gnd}),
+        .ODSEL   ({gw_gnd, gw_gnd, gw_gnd, gw_gnd, gw_gnd, gw_gnd}),
+        .PSDA    ({gw_gnd, gw_gnd, gw_gnd, gw_gnd}),
+        .DUTYDA  ({gw_gnd, gw_gnd, gw_gnd, gw_gnd}),
+        .FDLY    ({gw_gnd, gw_gnd, gw_gnd, gw_gnd}),
+        .VREN    (gw_vcc)
+    );
+
+    defparam pllvr_inst.FCLKIN       = "27";
+    defparam pllvr_inst.DYN_IDIV_SEL = "false";
+    defparam pllvr_inst.IDIV_SEL     = 2;
+    defparam pllvr_inst.DYN_FBDIV_SEL= "false";
+    defparam pllvr_inst.FBDIV_SEL    = 13;
+    defparam pllvr_inst.DYN_ODIV_SEL = "false";
+    defparam pllvr_inst.ODIV_SEL     = 8;
+    defparam pllvr_inst.PSDA_SEL     = "0000";
+    defparam pllvr_inst.DYN_DA_EN    = "true";
+    defparam pllvr_inst.DUTYDA_SEL   = "1000";
+    defparam pllvr_inst.CLKOUT_FT_DIR = 1'b1;
+    defparam pllvr_inst.CLKOUTP_FT_DIR = 1'b1;
+    defparam pllvr_inst.CLKOUT_DLY_STEP  = 0;
+    defparam pllvr_inst.CLKOUTP_DLY_STEP = 0;
+    defparam pllvr_inst.CLKFB_SEL    = "internal";
+    defparam pllvr_inst.CLKOUT_BYPASS  = "false";
+    defparam pllvr_inst.CLKOUTP_BYPASS = "false";
+    defparam pllvr_inst.CLKOUTD_BYPASS = "false";
+    defparam pllvr_inst.DYN_SDIV_SEL = 2;
+    defparam pllvr_inst.CLKOUTD_SRC  = "CLKOUT";
+    defparam pllvr_inst.CLKOUTD3_SRC = "CLKOUT";
+    defparam pllvr_inst.DEVICE       = "GW1NSR-4C";
+
+endmodule

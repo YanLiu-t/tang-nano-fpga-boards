@@ -1,0 +1,117 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/modelsim
+vgowin_rPLL
+!s110 1785150048
+!i10b 1
+!s100 L0G_iM5Lmj0B@b]C1HiS@0
+I6L>bFN3hOLiVfO>RdNMFV2
+Z0 VDg1SIo80bB@j0V0VzS_@n1
+Z1 dC:/Users/Thinkbook/Desktop/FPGA/ip_pll
+w1785150044
+Z2 8C:/Users/Thinkbook/Desktop/FPGA/ip_pll/src/gowin_rpll/gowin_rpll.v
+Z3 FC:/Users/Thinkbook/Desktop/FPGA/ip_pll/src/gowin_rpll/gowin_rpll.v
+Z4 L0 10
+Z5 OL;L;10.7;67
+r1
+!s85 0
+31
+!s108 1785150048.000000
+Z6 !s107 C:/Users/Thinkbook/Desktop/FPGA/ip_pll/src/gowin_rpll/gowin_rpll.v|
+Z7 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Thinkbook/Desktop/FPGA/ip_pll/src/gowin_rpll/gowin_rpll.v|
+!i113 0
+Z8 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z9 tCvgOpt 0
+ngowin_r@p@l@l
+vGowin_rPLL
+!s110 1785149971
+!i10b 1
+!s100 _H>N[Dz1^LK:5[U>9[L`92
+IaOfk>l8^LEEj=1BiQ0LMk1
+R0
+R1
+w1785145394
+R2
+R3
+R4
+R5
+r1
+!s85 0
+31
+!s108 1785149971.000000
+R6
+R7
+!i113 0
+R8
+R9
+n@gowin_r@p@l@l
+vgowin_rpll
+Z10 !s110 1785150591
+!i10b 1
+!s100 gWHSkYbk5fkeSEVmU]Dl23
+I8N2BG?mO8IeYc6:e2_2ld1
+R0
+R1
+w1785150323
+R2
+R3
+R4
+R5
+r1
+!s85 0
+31
+Z11 !s108 1785150591.000000
+R6
+R7
+!i113 0
+R8
+R9
+vip_pll
+R10
+!i10b 1
+!s100 ecA;fGeikjzZ0l7K`;6ZR2
+IoLo;eH;61SBCiE0C7o>KY1
+R0
+R1
+w1785144914
+8C:/Users/Thinkbook/Desktop/FPGA/ip_pll/src/ip_pll.v
+FC:/Users/Thinkbook/Desktop/FPGA/ip_pll/src/ip_pll.v
+L0 1
+R5
+r1
+!s85 0
+31
+R11
+!s107 C:/Users/Thinkbook/Desktop/FPGA/ip_pll/src/ip_pll.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Thinkbook/Desktop/FPGA/ip_pll/src/ip_pll.v|
+!i113 0
+R8
+R9
+vtb_ip_pll
+!s110 1785150327
+!i10b 1
+!s100 df0@L?he6D60J?f`bOkYJ3
+I>`0aziZ1LkD2FjjlIRdJ=0
+R0
+R1
+w1785145548
+8C:/Users/Thinkbook/Desktop/FPGA/ip_pll/src/ip_pll_tb.v
+FC:/Users/Thinkbook/Desktop/FPGA/ip_pll/src/ip_pll_tb.v
+L0 3
+R5
+r1
+!s85 0
+31
+!s108 1785150327.000000
+!s107 C:/Users/Thinkbook/Desktop/FPGA/ip_pll/src/ip_pll_tb.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/Thinkbook/Desktop/FPGA/ip_pll/src/ip_pll_tb.v|
+!i113 0
+R8
+R9

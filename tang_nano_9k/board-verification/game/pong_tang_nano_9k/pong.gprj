@@ -1,0 +1,26 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW1NR-9C" pn="GW1NR-LV9QN88PC6/I5">gw1nr9c-004</Device>
+    <FileList>
+        <File path="top.v" type="file.verilog" enable="1"/>
+        <File path="pong_game.v" type="file.verilog" enable="1"/>
+        <File path="keyboard_74hc165.v" type="file.verilog" enable="1"/>
+        <File path="paddle_ctrl.v" type="file.verilog" enable="1"/>
+        <File path="gowin_clkdiv/gowin_clkdiv.v" type="file.verilog" enable="1"/>
+        <File path="gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
+        <File path="hdmi/svo_enc.v" type="file.verilog" enable="1"/>
+        <File path="hdmi/svo_hdmi_top.v" type="file.verilog" enable="1"/>
+        <File path="hdmi/svo_openldi.v" type="file.verilog" enable="1"/>
+        <File path="hdmi/svo_pong.v" type="file.verilog" enable="1"/>
+        <File path="hdmi/svo_tcard.v" type="file.verilog" enable="1"/>
+        <File path="hdmi/svo_term.v" type="file.verilog" enable="1"/>
+        <File path="hdmi/svo_tmds.v" type="file.verilog" enable="1"/>
+        <File path="hdmi/svo_utils.v" type="file.verilog" enable="1"/>
+        <File path="hdmi/svo_vdma.v" type="file.verilog" enable="1"/>
+        <File path="pong.cst" type="file.cst" enable="1"/>
+        <File path="pong.sdc" type="file.sdc" enable="1"/>
+    </FileList>
+</Project>

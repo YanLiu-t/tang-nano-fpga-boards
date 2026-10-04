@@ -1,0 +1,36 @@
+/* Copyright 2024 Grug Huhler.  License SPDX BSD-2-Clause.
+ *
+ * Simple program for Cortex M3 on Tang Nano 4K
+ */
+
+#include <gpio_self.h>
+#include <uart_self.h>
+
+int main()
+{
+  unsigned char val = 1;
+  char ch;
+  
+  gpio_init_self();
+  gpio_set_dir(0, GPIO_OUT);
+  gpio_out_set_val(0, val);
+
+  uart_init_self(UART0, 234); /* 27e6 / 115200 */
+  uart_puts(UART0, "Hello GW1NSR-4C!\r\nCPUID: ");
+  //从指定内存地址取出CPU的编号
+  uart_print_hex(UART0, *(unsigned int *) 0xE000ED00);
+  uart_puts(UART0, "\r\nType some characters\r\n");
+
+  while (1) {
+    ch = uart_getchar(UART0);
+    uart_puts(UART0, "You pressed ");
+    uart_putchar(UART0, ch);
+    uart_puts(UART0, " and button is ");
+    if (gpio_in_get_val(1)) uart_puts(UART0, "not ");
+    uart_puts(UART0, "pressed\r\n");
+    val = 1 - val;
+    gpio_out_set_val(0, val);
+  }
+  
+  return 0;
+}

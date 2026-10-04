@@ -1,0 +1,34 @@
+//Copyright (C)2014-2025 Gowin Semiconductor Corporation.
+//All rights reserved. 
+//File Title: Physical Constraints file
+//Tool Version: V1.9.11.01 Education (64-bit)
+//Part Number: GW1NR-LV9QN88PC6/I5
+//Device: GW1NR-9
+//Device Version: C
+//Created Time: Thu 07 23 10:09:02 2026
+
+# 系统时钟 27MHz
+IO_LOC "clk" 52;
+IO_PORT "clk" PULL_MODE=NONE;
+
+# TM7705 ADC接口
+IO_LOC "tm7705_rst" 25;
+IO_PORT "tm7705_rst" PULL_MODE=NONE;
+IO_LOC "tm7705_sclk" 26;
+IO_PORT "tm7705_sclk" PULL_MODE=NONE;
+IO_LOC "tm7705_dout" 27;
+IO_PORT "tm7705_dout" PULL_MODE=NONE;
+IO_LOC "tm7705_cs" 28;
+IO_PORT "tm7705_cs" PULL_MODE=NONE;
+IO_LOC "tm7705_din" 29;
+IO_PORT "tm7705_din" PULL_MODE=NONE;
+IO_LOC "tm7705_drdy" 30;
+IO_PORT "tm7705_drdy" PULL_MODE=NONE;
+
+# HC595数码管接口
+IO_LOC "dio" 31;
+IO_PORT "dio" PULL_MODE=NONE;
+IO_LOC "srclk" 33;
+IO_PORT "srclk" PULL_MODE=NONE;
+IO_LOC "rclk" 34;
+IO_PORT "rclk" PULL_MODE=NONE;

@@ -1,0 +1,21 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW1NR-9C" pn="GW1NR-LV9QN88PC6/I5">gw1nr9c-004</Device>
+    <FileList>
+        <File path="src/Video_Image_Simulate_CMOS.v" type="file.verilog" enable="1"/>
+        <File path="src/cmos_capture_data.v" type="file.verilog" enable="1"/>
+        <File path="src/ddr3_fifo_ctrl.v" type="file.verilog" enable="1"/>
+        <File path="src/ddr3_rw.v" type="file.verilog" enable="1"/>
+        <File path="src/ddr3_top.v" type="file.verilog" enable="1"/>
+        <File path="src/i2c_dri.v" type="file.verilog" enable="1"/>
+        <File path="src/i2c_ov5640_rgb565_cfg.v" type="file.verilog" enable="1"/>
+        <File path="src/lcd_rgb_top.v" type="file.verilog" enable="1"/>
+        <File path="src/ov5640_dri.v" type="file.verilog" enable="1"/>
+        <File path="src/ov5640_lcd.v" type="file.verilog" enable="1"/>
+        <File path="src/picture_size.v" type="file.verilog" enable="1"/>
+        <File path="src/tb_ov5640_dri.v" type="file.verilog" enable="0"/>
+    </FileList>
+</Project>

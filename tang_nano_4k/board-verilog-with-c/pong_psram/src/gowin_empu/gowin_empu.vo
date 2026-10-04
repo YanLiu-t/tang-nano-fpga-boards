@@ -1,0 +1,1007 @@
+//Copyright (C)2014-2025 Gowin Semiconductor Corporation.
+//All rights reserved.
+//File Title: Post-PnR Verilog Simulation Model file
+//Tool Version: V1.9.11.01 Education (64-bit)
+//Created Time: Fri Sep 25 21:25:17 2026
+
+`timescale 100 ps/100 ps
+module Gowin_EMPU_Top(
+	sys_clk,
+	uart0_rxd,
+	master_prdata1,
+	master_pready1,
+	master_pslverr1,
+	master_hrdata,
+	master_hreadyout,
+	master_hresp,
+	master_hexresp,
+	master_hruser,
+	reset_n,
+	uart0_txd,
+	master_pclk,
+	master_prst,
+	master_penable,
+	master_paddr,
+	master_pwrite,
+	master_pwdata,
+	master_pstrb,
+	master_pprot,
+	master_psel1,
+	master_hclk,
+	master_hrst,
+	master_hsel,
+	master_haddr,
+	master_htrans,
+	master_hwrite,
+	master_hsize,
+	master_hburst,
+	master_hprot,
+	master_hmemattr,
+	master_hexreq,
+	master_hmaster,
+	master_hwdata,
+	master_hmastlock,
+	master_hreadymux,
+	master_hauser,
+	master_hwuser
+);
+input sys_clk;
+input uart0_rxd;
+input [31:0] master_prdata1;
+input master_pready1;
+input master_pslverr1;
+input [31:0] master_hrdata;
+input master_hreadyout;
+input master_hresp;
+input master_hexresp;
+input [2:0] master_hruser;
+input reset_n;
+output uart0_txd;
+output master_pclk;
+output master_prst;
+output master_penable;
+output [7:0] master_paddr;
+output master_pwrite;
+output [31:0] master_pwdata;
+output [3:0] master_pstrb;
+output [2:0] master_pprot;
+output master_psel1;
+output master_hclk;
+output master_hrst;
+output master_hsel;
+output [31:0] master_haddr;
+output [1:0] master_htrans;
+output master_hwrite;
+output [2:0] master_hsize;
+output [2:0] master_hburst;
+output [3:0] master_hprot;
+output [1:0] master_hmemattr;
+output master_hexreq;
+output [3:0] master_hmaster;
+output [31:0] master_hwdata;
+output master_hmastlock;
+output master_hreadymux;
+output master_hauser;
+output [3:0] master_hwuser;
+wire GND;
+wire VCC;
+wire [31:0] master_haddr;
+wire master_hauser;
+wire [2:0] master_hburst;
+wire master_hclk;
+wire master_hexreq;
+wire master_hexresp;
+wire [3:0] master_hmaster;
+wire master_hmastlock;
+wire [1:0] master_hmemattr;
+wire [3:0] master_hprot;
+wire [31:0] master_hrdata;
+wire master_hreadymux;
+wire master_hreadyout;
+wire master_hresp;
+wire master_hrst;
+wire [2:0] master_hruser;
+wire master_hsel;
+wire [2:0] master_hsize;
+wire [1:0] master_htrans;
+wire [31:0] master_hwdata;
+wire master_hwrite;
+wire [3:0] master_hwuser;
+wire [7:0] master_paddr;
+wire master_pclk;
+wire master_penable;
+wire [2:0] master_pprot;
+wire [31:0] master_prdata1;
+wire master_pready1;
+wire master_prst;
+wire master_psel1;
+wire master_pslverr1;
+wire [3:0] master_pstrb;
+wire [31:0] master_pwdata;
+wire master_pwrite;
+wire reset_n;
+wire sys_clk;
+wire uart0_rxd;
+wire uart0_txd;
+wire \Gowin_EMPU_inst/n815_5 ;
+wire \Gowin_EMPU_inst/n607_3 ;
+wire \Gowin_EMPU_inst/targflash0_readyout_23 ;
+wire \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ;
+wire \Gowin_EMPU_inst/n591_8 ;
+wire \Gowin_EMPU_inst/main_gowinemcu_ahbflash_read_14 ;
+wire \Gowin_EMPU_inst/main_gowinemcu_ahbflash_read_13 ;
+wire \Gowin_EMPU_inst/uart1_txd ;
+wire \Gowin_EMPU_inst/u_emcu_310_UART0BAUDTICK ;
+wire \Gowin_EMPU_inst/u_emcu_310_UART1BAUDTICK ;
+wire \Gowin_EMPU_inst/u_emcu_310_INTMONITOR ;
+wire \Gowin_EMPU_inst/sram0_cs ;
+wire \Gowin_EMPU_inst/targflash0_hsel ;
+wire \Gowin_EMPU_inst/targflash0_hreadymux ;
+wire \Gowin_EMPU_inst/initexp0_hready ;
+wire \Gowin_EMPU_inst/initexp0_hresp ;
+wire \Gowin_EMPU_inst/initexp0_exresp ;
+wire \Gowin_EMPU_inst/apbtargexp2_psel ;
+wire \Gowin_EMPU_inst/u_emcu_310_DAPTDO ;
+wire \Gowin_EMPU_inst/u_emcu_310_DAPJTAGNSW ;
+wire \Gowin_EMPU_inst/u_emcu_310_DAPNTDOEN ;
+wire \Gowin_EMPU_inst/trace_clk ;
+wire \Gowin_EMPU_inst/n37_6 ;
+wire \Gowin_EMPU_inst/apbtargexp2_pready ;
+wire \Gowin_EMPU_inst/apbtargexp2_pslverr ;
+wire [12:0] \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value ;
+wire [12:0] \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr ;
+wire [1:0] \Gowin_EMPU_inst/builder_resetinserter_state ;
+wire [11:0] \Gowin_EMPU_inst/sram0_addr ;
+wire [3:0] \Gowin_EMPU_inst/sram0_wren ;
+wire [31:0] \Gowin_EMPU_inst/sram0_wdata ;
+wire [14:2] \Gowin_EMPU_inst/targflash0_haddr ;
+wire [1:1] \Gowin_EMPU_inst/targflash0_htrans ;
+wire [11:8] \Gowin_EMPU_inst/apbtargexp2_paddr ;
+wire [31:0] \Gowin_EMPU_inst/targflash0_hrdata ;
+wire [31:0] \Gowin_EMPU_inst/sram0_rdata ;
+wire [31:0] \Gowin_EMPU_inst/apbtargexp2_prdata ;
+wire [15:0] \Gowin_EMPU_inst/IOEXPOUTPUTO ;
+wire [15:0] \Gowin_EMPU_inst/IOEXPOUTPUTENO ;
+wire [12:12] \Gowin_EMPU_inst/SRAM0ADDR ;
+wire [28:0] \Gowin_EMPU_inst/TARGFLASH0HADDR ;
+wire [0:0] \Gowin_EMPU_inst/TARGFLASH0HTRANS ;
+wire [2:0] \Gowin_EMPU_inst/TARGFLASH0HSIZE ;
+wire [2:0] \Gowin_EMPU_inst/TARGFLASH0HBURST ;
+wire [31:0] \Gowin_EMPU_inst/INITEXP0HRDATA ;
+wire [2:0] \Gowin_EMPU_inst/INITEXP0HRUSER ;
+wire [3:0] \Gowin_EMPU_inst/TPIUTRACEDATA ;
+wire \Gowin_EMPU_inst/u_sram_subsystem/n36_6 ;
+wire \Gowin_EMPU_inst/u_sram_subsystem/n104_6 ;
+wire \Gowin_EMPU_inst/u_sram_subsystem/n172_6 ;
+wire \Gowin_EMPU_inst/u_sram_subsystem/n240_6 ;
+wire [31:4] \Gowin_EMPU_inst/u_sram_subsystem/DO ;
+wire [31:4] \Gowin_EMPU_inst/u_sram_subsystem/DO_0 ;
+wire [31:4] \Gowin_EMPU_inst/u_sram_subsystem/DO_1 ;
+wire [31:4] \Gowin_EMPU_inst/u_sram_subsystem/DO_2 ;
+wire [31:4] \Gowin_EMPU_inst/u_sram_subsystem/DO_3 ;
+wire [31:4] \Gowin_EMPU_inst/u_sram_subsystem/DO_4 ;
+wire [31:4] \Gowin_EMPU_inst/u_sram_subsystem/DO_5 ;
+wire [31:4] \Gowin_EMPU_inst/u_sram_subsystem/DO_6 ;
+wire \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ;
+wire \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_pready_14 ;
+VCC VCC_cZ (
+  .V(VCC)
+);
+GND GND_cZ (
+  .G(GND)
+);
+GSR \Gowin_EMPU_inst/sys_reset  (
+	.GSRI(reset_n)
+);
+OBUF gowin_buf_0 (
+	.I(sys_clk),
+	.O(master_pclk)
+);
+OBUF gowin_buf_1 (
+	.I(reset_n),
+	.O(master_prst)
+);
+OBUF gowin_buf_2 (
+	.I(sys_clk),
+	.O(master_hclk)
+);
+LUT2 \Gowin_EMPU_inst/n815_s1  (
+	.I0(reset_n),
+	.I1(master_hrst),
+	.F(\Gowin_EMPU_inst/n815_5 )
+);
+defparam \Gowin_EMPU_inst/n815_s1 .INIT=4'h7;
+LUT2 \Gowin_EMPU_inst/n607_s0  (
+	.I0(\Gowin_EMPU_inst/targflash0_hsel ),
+	.I1(\Gowin_EMPU_inst/targflash0_htrans [1]),
+	.F(\Gowin_EMPU_inst/n607_3 )
+);
+defparam \Gowin_EMPU_inst/n607_s0 .INIT=4'h8;
+LUT2 \Gowin_EMPU_inst/targflash0_readyout_s19  (
+	.I0(\Gowin_EMPU_inst/builder_resetinserter_state [0]),
+	.I1(\Gowin_EMPU_inst/builder_resetinserter_state [1]),
+	.F(\Gowin_EMPU_inst/targflash0_readyout_23 )
+);
+defparam \Gowin_EMPU_inst/targflash0_readyout_s19 .INIT=4'h9;
+LUT4 \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce_s2  (
+	.I0(\Gowin_EMPU_inst/builder_resetinserter_state [0]),
+	.I1(\Gowin_EMPU_inst/builder_resetinserter_state [1]),
+	.I2(\Gowin_EMPU_inst/targflash0_hsel ),
+	.I3(\Gowin_EMPU_inst/targflash0_htrans [1]),
+	.F(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce )
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce_s2 .INIT=16'h9000;
+LUT2 \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_0_s2  (
+	.I0(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.I1(\Gowin_EMPU_inst/targflash0_haddr [2]),
+	.F(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [0])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_0_s2 .INIT=4'h8;
+LUT2 \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_1_s2  (
+	.I0(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.I1(\Gowin_EMPU_inst/targflash0_haddr [3]),
+	.F(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [1])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_1_s2 .INIT=4'h8;
+LUT2 \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_2_s2  (
+	.I0(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.I1(\Gowin_EMPU_inst/targflash0_haddr [4]),
+	.F(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [2])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_2_s2 .INIT=4'h8;
+LUT2 \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_3_s2  (
+	.I0(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.I1(\Gowin_EMPU_inst/targflash0_haddr [5]),
+	.F(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [3])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_3_s2 .INIT=4'h8;
+LUT2 \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_4_s2  (
+	.I0(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.I1(\Gowin_EMPU_inst/targflash0_haddr [6]),
+	.F(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [4])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_4_s2 .INIT=4'h8;
+LUT2 \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_5_s2  (
+	.I0(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.I1(\Gowin_EMPU_inst/targflash0_haddr [7]),
+	.F(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [5])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_5_s2 .INIT=4'h8;
+LUT2 \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_6_s2  (
+	.I0(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.I1(\Gowin_EMPU_inst/targflash0_haddr [8]),
+	.F(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [6])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_6_s2 .INIT=4'h8;
+LUT2 \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_7_s2  (
+	.I0(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.I1(\Gowin_EMPU_inst/targflash0_haddr [9]),
+	.F(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [7])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_7_s2 .INIT=4'h8;
+LUT2 \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_8_s2  (
+	.I0(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.I1(\Gowin_EMPU_inst/targflash0_haddr [10]),
+	.F(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [8])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_8_s2 .INIT=4'h8;
+LUT2 \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_9_s2  (
+	.I0(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.I1(\Gowin_EMPU_inst/targflash0_haddr [11]),
+	.F(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [9])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_9_s2 .INIT=4'h8;
+LUT2 \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_10_s2  (
+	.I0(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.I1(\Gowin_EMPU_inst/targflash0_haddr [12]),
+	.F(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [10])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_10_s2 .INIT=4'h8;
+LUT2 \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_11_s2  (
+	.I0(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.I1(\Gowin_EMPU_inst/targflash0_haddr [13]),
+	.F(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [11])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_11_s2 .INIT=4'h8;
+LUT2 \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_12_s2  (
+	.I0(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.I1(\Gowin_EMPU_inst/targflash0_haddr [14]),
+	.F(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [12])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_12_s2 .INIT=4'h8;
+LUT4 \Gowin_EMPU_inst/n591_s3  (
+	.I0(reset_n),
+	.I1(master_hrst),
+	.I2(\Gowin_EMPU_inst/builder_resetinserter_state [0]),
+	.I3(\Gowin_EMPU_inst/builder_resetinserter_state [1]),
+	.F(\Gowin_EMPU_inst/n591_8 )
+);
+defparam \Gowin_EMPU_inst/n591_s3 .INIT=16'h7FF7;
+LUT4 \Gowin_EMPU_inst/main_gowinemcu_ahbflash_read_s6  (
+	.I0(\Gowin_EMPU_inst/builder_resetinserter_state [1]),
+	.I1(\Gowin_EMPU_inst/targflash0_hsel ),
+	.I2(\Gowin_EMPU_inst/targflash0_htrans [1]),
+	.I3(\Gowin_EMPU_inst/builder_resetinserter_state [0]),
+	.F(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_read_14 )
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_read_s6 .INIT=16'h7F00;
+LUT2 \Gowin_EMPU_inst/main_gowinemcu_ahbflash_read_s7  (
+	.I0(\Gowin_EMPU_inst/builder_resetinserter_state [1]),
+	.I1(\Gowin_EMPU_inst/builder_resetinserter_state [0]),
+	.F(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_read_13 )
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_read_s7 .INIT=4'h4;
+DFFRE \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_11_s0  (
+	.D(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [11]),
+	.CLK(sys_clk),
+	.CE(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.RESET(\Gowin_EMPU_inst/n37_6 ),
+	.Q(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr [11])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_11_s0 .INIT=1'b0;
+DFFRE \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_10_s0  (
+	.D(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [10]),
+	.CLK(sys_clk),
+	.CE(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.RESET(\Gowin_EMPU_inst/n37_6 ),
+	.Q(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr [10])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_10_s0 .INIT=1'b0;
+DFFRE \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_9_s0  (
+	.D(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [9]),
+	.CLK(sys_clk),
+	.CE(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.RESET(\Gowin_EMPU_inst/n37_6 ),
+	.Q(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr [9])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_9_s0 .INIT=1'b0;
+DFFRE \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_8_s0  (
+	.D(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [8]),
+	.CLK(sys_clk),
+	.CE(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.RESET(\Gowin_EMPU_inst/n37_6 ),
+	.Q(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr [8])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_8_s0 .INIT=1'b0;
+DFFRE \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_7_s0  (
+	.D(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [7]),
+	.CLK(sys_clk),
+	.CE(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.RESET(\Gowin_EMPU_inst/n37_6 ),
+	.Q(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr [7])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_7_s0 .INIT=1'b0;
+DFFRE \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_6_s0  (
+	.D(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [6]),
+	.CLK(sys_clk),
+	.CE(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.RESET(\Gowin_EMPU_inst/n37_6 ),
+	.Q(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr [6])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_6_s0 .INIT=1'b0;
+DFFRE \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_5_s0  (
+	.D(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [5]),
+	.CLK(sys_clk),
+	.CE(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.RESET(\Gowin_EMPU_inst/n37_6 ),
+	.Q(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr [5])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_5_s0 .INIT=1'b0;
+DFFRE \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_4_s0  (
+	.D(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [4]),
+	.CLK(sys_clk),
+	.CE(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.RESET(\Gowin_EMPU_inst/n37_6 ),
+	.Q(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr [4])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_4_s0 .INIT=1'b0;
+DFFRE \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_3_s0  (
+	.D(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [3]),
+	.CLK(sys_clk),
+	.CE(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.RESET(\Gowin_EMPU_inst/n37_6 ),
+	.Q(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr [3])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_3_s0 .INIT=1'b0;
+DFFRE \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_2_s0  (
+	.D(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [2]),
+	.CLK(sys_clk),
+	.CE(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.RESET(\Gowin_EMPU_inst/n37_6 ),
+	.Q(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr [2])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_2_s0 .INIT=1'b0;
+DFFRE \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_1_s0  (
+	.D(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [1]),
+	.CLK(sys_clk),
+	.CE(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.RESET(\Gowin_EMPU_inst/n37_6 ),
+	.Q(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr [1])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_1_s0 .INIT=1'b0;
+DFFRE \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_0_s0  (
+	.D(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [0]),
+	.CLK(sys_clk),
+	.CE(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.RESET(\Gowin_EMPU_inst/n37_6 ),
+	.Q(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr [0])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_0_s0 .INIT=1'b0;
+DFFRE \Gowin_EMPU_inst/builder_resetinserter_state_0_s0  (
+	.D(VCC),
+	.CLK(sys_clk),
+	.CE(\Gowin_EMPU_inst/n607_3 ),
+	.RESET(\Gowin_EMPU_inst/n591_8 ),
+	.Q(\Gowin_EMPU_inst/builder_resetinserter_state [0])
+);
+defparam \Gowin_EMPU_inst/builder_resetinserter_state_0_s0 .INIT=1'b0;
+DFFRE \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_12_s0  (
+	.D(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value [12]),
+	.CLK(sys_clk),
+	.CE(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_resetinserter_next_value_ce ),
+	.RESET(\Gowin_EMPU_inst/n37_6 ),
+	.Q(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr [12])
+);
+defparam \Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr_12_s0 .INIT=1'b0;
+DFFR \Gowin_EMPU_inst/builder_resetinserter_state_1_s7  (
+	.D(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_read_14 ),
+	.CLK(sys_clk),
+	.RESET(\Gowin_EMPU_inst/n815_5 ),
+	.Q(\Gowin_EMPU_inst/builder_resetinserter_state [1])
+);
+defparam \Gowin_EMPU_inst/builder_resetinserter_state_1_s7 .INIT=1'b0;
+EMCU \Gowin_EMPU_inst/u_emcu  (
+	.FCLK(sys_clk),
+	.PORESETN(reset_n),
+	.SYSRESETN(reset_n),
+	.RTCSRCCLK(GND),
+	.UART0RXDI(uart0_rxd),
+	.UART1RXDI(GND),
+	.TARGFLASH0HRESP(GND),
+	.TARGFLASH0EXRESP(GND),
+	.TARGFLASH0HREADYOUT(\Gowin_EMPU_inst/targflash0_readyout_23 ),
+	.TARGEXP0HREADYOUT(master_hreadyout),
+	.TARGEXP0HRESP(master_hresp),
+	.TARGEXP0EXRESP(master_hexresp),
+	.INITEXP0HSEL(GND),
+	.INITEXP0HWRITE(GND),
+	.INITEXP0EXREQ(GND),
+	.INITEXP0HMASTLOCK(GND),
+	.INITEXP0HAUSER(GND),
+	.APBTARGEXP2PREADY(\Gowin_EMPU_inst/apbtargexp2_pready ),
+	.APBTARGEXP2PSLVERR(\Gowin_EMPU_inst/apbtargexp2_pslverr ),
+	.DAPSWDITMS(GND),
+	.DAPTDI(GND),
+	.DAPNTRST(VCC),
+	.DAPSWCLKTCK(GND),
+	.FLASHERR(GND),
+	.FLASHINT(GND),
+	.INITEXP0HTRANS({GND, GND}),
+	.IOEXPINPUTI({GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND}),
+	.SRAM0RDATA({\Gowin_EMPU_inst/sram0_rdata [31:0]}),
+	.TARGFLASH0HRDATA({\Gowin_EMPU_inst/targflash0_hrdata [31:0]}),
+	.TARGFLASH0HRUSER({GND, GND, GND}),
+	.TARGEXP0HRDATA({master_hrdata[31:0]}),
+	.TARGEXP0HRUSER({master_hruser[2:0]}),
+	.INITEXP0HADDR({GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND}),
+	.INITEXP0HSIZE({GND, GND, GND}),
+	.INITEXP0HBURST({GND, GND, GND}),
+	.INITEXP0HPROT({GND, GND, GND, GND}),
+	.INITEXP0MEMATTR({GND, GND}),
+	.INITEXP0HMASTER({GND, GND, GND, GND}),
+	.INITEXP0HWDATA({GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND}),
+	.INITEXP0HWUSER({GND, GND, GND, GND}),
+	.APBTARGEXP2PRDATA({\Gowin_EMPU_inst/apbtargexp2_prdata [31:0]}),
+	.MTXREMAP({VCC, VCC, VCC, VCC}),
+	.GPINT({GND, GND, GND, GND, GND}),
+	.UART0TXDO(uart0_txd),
+	.UART1TXDO(\Gowin_EMPU_inst/uart1_txd ),
+	.UART0BAUDTICK(\Gowin_EMPU_inst/u_emcu_310_UART0BAUDTICK ),
+	.UART1BAUDTICK(\Gowin_EMPU_inst/u_emcu_310_UART1BAUDTICK ),
+	.INTMONITOR(\Gowin_EMPU_inst/u_emcu_310_INTMONITOR ),
+	.SRAM0CS(\Gowin_EMPU_inst/sram0_cs ),
+	.MTXHRESETN(master_hrst),
+	.TARGFLASH0HSEL(\Gowin_EMPU_inst/targflash0_hsel ),
+	.TARGFLASH0HREADYMUX(\Gowin_EMPU_inst/targflash0_hreadymux ),
+	.TARGEXP0HSEL(master_hsel),
+	.TARGEXP0HWRITE(master_hwrite),
+	.TARGEXP0EXREQ(master_hexreq),
+	.TARGEXP0HMASTLOCK(master_hmastlock),
+	.TARGEXP0HREADYMUX(master_hreadymux),
+	.TARGEXP0HAUSER(master_hauser),
+	.INITEXP0HREADY(\Gowin_EMPU_inst/initexp0_hready ),
+	.INITEXP0HRESP(\Gowin_EMPU_inst/initexp0_hresp ),
+	.INITEXP0EXRESP(\Gowin_EMPU_inst/initexp0_exresp ),
+	.APBTARGEXP2PSEL(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.APBTARGEXP2PENABLE(master_penable),
+	.APBTARGEXP2PWRITE(master_pwrite),
+	.DAPTDO(\Gowin_EMPU_inst/u_emcu_310_DAPTDO ),
+	.DAPNTDOEN(\Gowin_EMPU_inst/u_emcu_310_DAPNTDOEN ),
+	.DAPJTAGNSW(\Gowin_EMPU_inst/u_emcu_310_DAPJTAGNSW ),
+	.TPIUTRACECLK(\Gowin_EMPU_inst/trace_clk ),
+	.IOEXPOUTPUTO({\Gowin_EMPU_inst/IOEXPOUTPUTO [15:0]}),
+	.IOEXPOUTPUTENO({\Gowin_EMPU_inst/IOEXPOUTPUTENO [15:0]}),
+	.SRAM0ADDR({\Gowin_EMPU_inst/SRAM0ADDR [12], \Gowin_EMPU_inst/sram0_addr [11:0]}),
+	.SRAM0WREN({\Gowin_EMPU_inst/sram0_wren [3:0]}),
+	.SRAM0WDATA({\Gowin_EMPU_inst/sram0_wdata [31:0]}),
+	.TARGFLASH0HADDR({\Gowin_EMPU_inst/TARGFLASH0HADDR [28:15], \Gowin_EMPU_inst/targflash0_haddr [14:2], \Gowin_EMPU_inst/TARGFLASH0HADDR [1:0]}),
+	.TARGFLASH0HTRANS({\Gowin_EMPU_inst/targflash0_htrans [1], \Gowin_EMPU_inst/TARGFLASH0HTRANS [0]}),
+	.TARGFLASH0HSIZE({\Gowin_EMPU_inst/TARGFLASH0HSIZE [2:0]}),
+	.TARGFLASH0HBURST({\Gowin_EMPU_inst/TARGFLASH0HBURST [2:0]}),
+	.TARGEXP0HADDR({master_haddr[31:0]}),
+	.TARGEXP0HTRANS({master_htrans[1:0]}),
+	.TARGEXP0MEMATTR({master_hmemattr[1:0]}),
+	.TARGEXP0HSIZE({master_hsize[2:0]}),
+	.TARGEXP0HPROT({master_hprot[3:0]}),
+	.TARGEXP0HMASTER({master_hmaster[3:0]}),
+	.TARGEXP0HWDATA({master_hwdata[31:0]}),
+	.TARGEXP0HWUSER({master_hwuser[3:0]}),
+	.INITEXP0HRDATA({\Gowin_EMPU_inst/INITEXP0HRDATA [31:0]}),
+	.INITEXP0HRUSER({\Gowin_EMPU_inst/INITEXP0HRUSER [2:0]}),
+	.APBTARGEXP2PSTRB({master_pstrb[3:0]}),
+	.APBTARGEXP2PPROT({master_pprot[2:0]}),
+	.APBTARGEXP2PADDR({\Gowin_EMPU_inst/apbtargexp2_paddr [11:8], master_paddr[7:0]}),
+	.APBTARGEXP2PWDATA({master_pwdata[31:0]}),
+	.TPIUTRACEDATA({\Gowin_EMPU_inst/TPIUTRACEDATA [3:0]}),
+	.TARGEXP0HBURST({master_hburst[2:0]})
+);
+FLASH256K \Gowin_EMPU_inst/u_FLASH256K  (
+	.XE(reset_n),
+	.YE(reset_n),
+	.SE(\Gowin_EMPU_inst/main_gowinemcu_ahbflash_read_13 ),
+	.PROG(GND),
+	.ERASE(GND),
+	.NVSTR(GND),
+	.XADR({\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr [12:6]}),
+	.YADR({\Gowin_EMPU_inst/main_gowinemcu_ahbflash_addr [5:0]}),
+	.DIN({GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND}),
+	.DOUT({\Gowin_EMPU_inst/targflash0_hrdata [31:0]})
+);
+SDPB \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_00  (
+	.CLKA(sys_clk),
+	.CEA(\Gowin_EMPU_inst/sram0_wren [0]),
+	.RESETA(GND),
+	.CLKB(sys_clk),
+	.CEB(\Gowin_EMPU_inst/u_sram_subsystem/n36_6 ),
+	.RESETB(\Gowin_EMPU_inst/n37_6 ),
+	.OCE(VCC),
+	.BLKSELA({\Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs }),
+	.BLKSELB({\Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs }),
+	.DI({GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, \Gowin_EMPU_inst/sram0_wdata [3:0]}),
+	.ADA({\Gowin_EMPU_inst/sram0_addr [11:0], GND, GND}),
+	.ADB({\Gowin_EMPU_inst/sram0_addr [11:0], GND, GND}),
+	.DO({\Gowin_EMPU_inst/u_sram_subsystem/DO [31:4], \Gowin_EMPU_inst/sram0_rdata [3:0]})
+);
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_00 .READ_MODE=1'b0;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_00 .BIT_WIDTH_0=4;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_00 .BIT_WIDTH_1=4;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_00 .RESET_MODE="SYNC";
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_00 .BLK_SEL_0=3'b111;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_00 .BLK_SEL_1=3'b111;
+SDPB \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_01  (
+	.CLKA(sys_clk),
+	.CEA(\Gowin_EMPU_inst/sram0_wren [0]),
+	.RESETA(GND),
+	.CLKB(sys_clk),
+	.CEB(\Gowin_EMPU_inst/u_sram_subsystem/n36_6 ),
+	.RESETB(\Gowin_EMPU_inst/n37_6 ),
+	.OCE(VCC),
+	.BLKSELA({\Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs }),
+	.BLKSELB({\Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs }),
+	.DI({GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, \Gowin_EMPU_inst/sram0_wdata [7:4]}),
+	.ADA({\Gowin_EMPU_inst/sram0_addr [11:0], GND, GND}),
+	.ADB({\Gowin_EMPU_inst/sram0_addr [11:0], GND, GND}),
+	.DO({\Gowin_EMPU_inst/u_sram_subsystem/DO_0 [31:4], \Gowin_EMPU_inst/sram0_rdata [7:4]})
+);
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_01 .READ_MODE=1'b0;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_01 .BIT_WIDTH_0=4;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_01 .BIT_WIDTH_1=4;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_01 .RESET_MODE="SYNC";
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_01 .BLK_SEL_0=3'b111;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_01 .BLK_SEL_1=3'b111;
+SDPB \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_10  (
+	.CLKA(sys_clk),
+	.CEA(\Gowin_EMPU_inst/sram0_wren [1]),
+	.RESETA(GND),
+	.CLKB(sys_clk),
+	.CEB(\Gowin_EMPU_inst/u_sram_subsystem/n104_6 ),
+	.RESETB(\Gowin_EMPU_inst/n37_6 ),
+	.OCE(VCC),
+	.BLKSELA({\Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs }),
+	.BLKSELB({\Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs }),
+	.DI({GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, \Gowin_EMPU_inst/sram0_wdata [11:8]}),
+	.ADA({\Gowin_EMPU_inst/sram0_addr [11:0], GND, GND}),
+	.ADB({\Gowin_EMPU_inst/sram0_addr [11:0], GND, GND}),
+	.DO({\Gowin_EMPU_inst/u_sram_subsystem/DO_1 [31:4], \Gowin_EMPU_inst/sram0_rdata [11:8]})
+);
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_10 .READ_MODE=1'b0;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_10 .BIT_WIDTH_0=4;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_10 .BIT_WIDTH_1=4;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_10 .RESET_MODE="SYNC";
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_10 .BLK_SEL_0=3'b111;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_10 .BLK_SEL_1=3'b111;
+SDPB \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_11  (
+	.CLKA(sys_clk),
+	.CEA(\Gowin_EMPU_inst/sram0_wren [1]),
+	.RESETA(GND),
+	.CLKB(sys_clk),
+	.CEB(\Gowin_EMPU_inst/u_sram_subsystem/n104_6 ),
+	.RESETB(\Gowin_EMPU_inst/n37_6 ),
+	.OCE(VCC),
+	.BLKSELA({\Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs }),
+	.BLKSELB({\Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs }),
+	.DI({GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, \Gowin_EMPU_inst/sram0_wdata [15:12]}),
+	.ADA({\Gowin_EMPU_inst/sram0_addr [11:0], GND, GND}),
+	.ADB({\Gowin_EMPU_inst/sram0_addr [11:0], GND, GND}),
+	.DO({\Gowin_EMPU_inst/u_sram_subsystem/DO_2 [31:4], \Gowin_EMPU_inst/sram0_rdata [15:12]})
+);
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_11 .READ_MODE=1'b0;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_11 .BIT_WIDTH_0=4;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_11 .BIT_WIDTH_1=4;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_11 .RESET_MODE="SYNC";
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_11 .BLK_SEL_0=3'b111;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_11 .BLK_SEL_1=3'b111;
+SDPB \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_20  (
+	.CLKA(sys_clk),
+	.CEA(\Gowin_EMPU_inst/sram0_wren [2]),
+	.RESETA(GND),
+	.CLKB(sys_clk),
+	.CEB(\Gowin_EMPU_inst/u_sram_subsystem/n172_6 ),
+	.RESETB(\Gowin_EMPU_inst/n37_6 ),
+	.OCE(VCC),
+	.BLKSELA({\Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs }),
+	.BLKSELB({\Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs }),
+	.DI({GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, \Gowin_EMPU_inst/sram0_wdata [19:16]}),
+	.ADA({\Gowin_EMPU_inst/sram0_addr [11:0], GND, GND}),
+	.ADB({\Gowin_EMPU_inst/sram0_addr [11:0], GND, GND}),
+	.DO({\Gowin_EMPU_inst/u_sram_subsystem/DO_3 [31:4], \Gowin_EMPU_inst/sram0_rdata [19:16]})
+);
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_20 .READ_MODE=1'b0;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_20 .BIT_WIDTH_0=4;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_20 .BIT_WIDTH_1=4;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_20 .RESET_MODE="SYNC";
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_20 .BLK_SEL_0=3'b111;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_20 .BLK_SEL_1=3'b111;
+SDPB \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_21  (
+	.CLKA(sys_clk),
+	.CEA(\Gowin_EMPU_inst/sram0_wren [2]),
+	.RESETA(GND),
+	.CLKB(sys_clk),
+	.CEB(\Gowin_EMPU_inst/u_sram_subsystem/n172_6 ),
+	.RESETB(\Gowin_EMPU_inst/n37_6 ),
+	.OCE(VCC),
+	.BLKSELA({\Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs }),
+	.BLKSELB({\Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs }),
+	.DI({GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, \Gowin_EMPU_inst/sram0_wdata [23:20]}),
+	.ADA({\Gowin_EMPU_inst/sram0_addr [11:0], GND, GND}),
+	.ADB({\Gowin_EMPU_inst/sram0_addr [11:0], GND, GND}),
+	.DO({\Gowin_EMPU_inst/u_sram_subsystem/DO_4 [31:4], \Gowin_EMPU_inst/sram0_rdata [23:20]})
+);
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_21 .READ_MODE=1'b0;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_21 .BIT_WIDTH_0=4;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_21 .BIT_WIDTH_1=4;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_21 .RESET_MODE="SYNC";
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_21 .BLK_SEL_0=3'b111;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_21 .BLK_SEL_1=3'b111;
+SDPB \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_30  (
+	.CLKA(sys_clk),
+	.CEA(\Gowin_EMPU_inst/sram0_wren [3]),
+	.RESETA(GND),
+	.CLKB(sys_clk),
+	.CEB(\Gowin_EMPU_inst/u_sram_subsystem/n240_6 ),
+	.RESETB(\Gowin_EMPU_inst/n37_6 ),
+	.OCE(VCC),
+	.BLKSELA({\Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs }),
+	.BLKSELB({\Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs }),
+	.DI({GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, \Gowin_EMPU_inst/sram0_wdata [27:24]}),
+	.ADA({\Gowin_EMPU_inst/sram0_addr [11:0], GND, GND}),
+	.ADB({\Gowin_EMPU_inst/sram0_addr [11:0], GND, GND}),
+	.DO({\Gowin_EMPU_inst/u_sram_subsystem/DO_5 [31:4], \Gowin_EMPU_inst/sram0_rdata [27:24]})
+);
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_30 .READ_MODE=1'b0;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_30 .BIT_WIDTH_0=4;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_30 .BIT_WIDTH_1=4;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_30 .RESET_MODE="SYNC";
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_30 .BLK_SEL_0=3'b111;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_30 .BLK_SEL_1=3'b111;
+SDPB \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_31  (
+	.CLKA(sys_clk),
+	.CEA(\Gowin_EMPU_inst/sram0_wren [3]),
+	.RESETA(GND),
+	.CLKB(sys_clk),
+	.CEB(\Gowin_EMPU_inst/u_sram_subsystem/n240_6 ),
+	.RESETB(\Gowin_EMPU_inst/n37_6 ),
+	.OCE(VCC),
+	.BLKSELA({\Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs }),
+	.BLKSELB({\Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs , \Gowin_EMPU_inst/sram0_cs }),
+	.DI({GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, GND, \Gowin_EMPU_inst/sram0_wdata [31:28]}),
+	.ADA({\Gowin_EMPU_inst/sram0_addr [11:0], GND, GND}),
+	.ADB({\Gowin_EMPU_inst/sram0_addr [11:0], GND, GND}),
+	.DO({\Gowin_EMPU_inst/u_sram_subsystem/DO_6 [31:4], \Gowin_EMPU_inst/sram0_rdata [31:28]})
+);
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_31 .READ_MODE=1'b0;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_31 .BIT_WIDTH_0=4;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_31 .BIT_WIDTH_1=4;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_31 .RESET_MODE="SYNC";
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_31 .BLK_SEL_0=3'b111;
+defparam \Gowin_EMPU_inst/u_sram_subsystem/bram_sdp_31 .BLK_SEL_1=3'b111;
+INV \Gowin_EMPU_inst/u_sram_subsystem/n36_s2  (
+	.I(\Gowin_EMPU_inst/sram0_wren [0]),
+	.O(\Gowin_EMPU_inst/u_sram_subsystem/n36_6 )
+);
+INV \Gowin_EMPU_inst/u_sram_subsystem/n37_s2  (
+	.I(master_hrst),
+	.O(\Gowin_EMPU_inst/n37_6 )
+);
+INV \Gowin_EMPU_inst/u_sram_subsystem/n104_s2  (
+	.I(\Gowin_EMPU_inst/sram0_wren [1]),
+	.O(\Gowin_EMPU_inst/u_sram_subsystem/n104_6 )
+);
+INV \Gowin_EMPU_inst/u_sram_subsystem/n172_s2  (
+	.I(\Gowin_EMPU_inst/sram0_wren [2]),
+	.O(\Gowin_EMPU_inst/u_sram_subsystem/n172_6 )
+);
+INV \Gowin_EMPU_inst/u_sram_subsystem/n240_s2  (
+	.I(\Gowin_EMPU_inst/sram0_wren [3]),
+	.O(\Gowin_EMPU_inst/u_sram_subsystem/n240_6 )
+);
+LUT2 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.F(master_psel1)
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_s .INIT=4'h8;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_pready_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(master_pready1),
+	.I2(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_pready_14 ),
+	.F(\Gowin_EMPU_inst/apbtargexp2_pready )
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_pready_s .INIT=8'h8F;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_pslverr_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_pslverr1),
+	.F(\Gowin_EMPU_inst/apbtargexp2_pslverr )
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_pslverr_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_0_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[0]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [0])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_0_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_1_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[1]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [1])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_1_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_2_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[2]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [2])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_2_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_3_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[3]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [3])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_3_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_4_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[4]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [4])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_4_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_5_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[5]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [5])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_5_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_6_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[6]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [6])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_6_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_7_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[7]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [7])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_7_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_8_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[8]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [8])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_8_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_9_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[9]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [9])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_9_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_10_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[10]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [10])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_10_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_11_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[11]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [11])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_11_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_12_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[12]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [12])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_12_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_13_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[13]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [13])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_13_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_14_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[14]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [14])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_14_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_15_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[15]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [15])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_15_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_16_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[16]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [16])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_16_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_17_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[17]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [17])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_17_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_18_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[18]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [18])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_18_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_19_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[19]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [19])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_19_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_20_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[20]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [20])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_20_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_21_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[21]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [21])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_21_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_22_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[22]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [22])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_22_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_23_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[23]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [23])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_23_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_24_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[24]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [24])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_24_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_25_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[25]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [25])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_25_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_26_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[26]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [26])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_26_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_27_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[27]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [27])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_27_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_28_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[28]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [28])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_28_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_29_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[29]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [29])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_29_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_30_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[30]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [30])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_30_s .INIT=8'h80;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_31_s  (
+	.I0(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 ),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.I2(master_prdata1[31]),
+	.F(\Gowin_EMPU_inst/apbtargexp2_prdata [31])
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_prdata_31_s .INIT=8'h80;
+LUT4 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_s0  (
+	.I0(\Gowin_EMPU_inst/apbtargexp2_paddr [8]),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_paddr [9]),
+	.I2(\Gowin_EMPU_inst/apbtargexp2_paddr [11]),
+	.I3(\Gowin_EMPU_inst/apbtargexp2_paddr [10]),
+	.F(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_4 )
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/master_psel1_d_s0 .INIT=16'h0100;
+LUT3 \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_pready_s0  (
+	.I0(\Gowin_EMPU_inst/apbtargexp2_paddr [11]),
+	.I1(\Gowin_EMPU_inst/apbtargexp2_paddr [10]),
+	.I2(\Gowin_EMPU_inst/apbtargexp2_psel ),
+	.F(\Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_pready_14 )
+);
+defparam \Gowin_EMPU_inst/u_gw_peripherals_interconnect/u_gw_cmsdk_apb2_slave_mux/apbtargexp2_pready_s0 .INIT=8'hE0;
+endmodule

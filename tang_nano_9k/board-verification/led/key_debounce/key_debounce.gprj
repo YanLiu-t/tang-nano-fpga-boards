@@ -1,0 +1,17 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW1NR-9C" pn="GW1NR-LV9QN88PC6/I5">gw1nr9c-004</Device>
+    <FileList>
+        <File path="src/key_beep.v" type="file.verilog" enable="1"/>
+        <File path="src/key_beep_music.v" type="file.verilog" enable="1"/>
+        <File path="src/key_beep_music_slj.v" type="file.verilog" enable="1"/>
+        <File path="src/key_debounce.v" type="file.verilog" enable="1"/>
+        <File path="src/tb_top_key_beep.v" type="file.verilog" enable="1"/>
+        <File path="src/top_key_beep.v" type="file.verilog" enable="1"/>
+        <File path="src/twinkle_twinkle.v" type="file.verilog" enable="1"/>
+        <File path="src/key_debounce.cst" type="file.cst" enable="1"/>
+    </FileList>
+</Project>

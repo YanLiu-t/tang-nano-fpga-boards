@@ -1,0 +1,63 @@
+//============================================================================
+// Tang Nano 4K (GW1NSR-4C) - Pong pin constraints
+//============================================================================
+
+// Clock 27MHz (Pin 45)
+IO_LOC "clk" 45;
+IO_PORT "clk" IO_TYPE=LVCMOS33 PULL_MODE=UP BANK_VCCIO=3.3;
+
+// Reset button S1 (Pin 14 / IOB4B)
+// NOTE: Pin 14 is in Bank 3, which is powered at 1.8V on this board
+// (button pulls up to 1.8V). Must use LVCMOS18 (NOT LVCMOS15/33).
+IO_LOC "resetn" 14;
+IO_PORT "resetn" IO_TYPE=LVCMOS18 PULL_MODE=UP BANK_VCCIO=1.8;
+
+//============================================================================
+// HyperRAM on-die (64Mbit W956D8MKY) - differential clock (CLK_DIFF).
+// The embedded HyperRAM die is bonded to INTERNAL pads p1-6..p1-22 (not the
+// QFN48 package pins). The Education toolchain does NOT auto-place HyperRAM
+// I/O onto these die pads (unlike the full V1.9.11.02 tool), so they must be
+// pinned explicitly. Mapping taken from the official RefDesign PnR report:
+//   ck=p1-13  ck_n=p1-14  cs_n=p1-15  reset_n=p1-22  rwds=p1-6
+//   dq[0..7]=p1-19/18/17/16/10/9/8/7
+//============================================================================
+IO_LOC "hpram_ck[0]"       p1-13;
+IO_LOC "hpram_ck_n[0]"     p1-14;
+IO_LOC "hpram_cs_n[0]"     p1-15;
+IO_LOC "hpram_reset_n[0]"  p1-22;
+IO_LOC "hpram_rwds[0]"     p1-6;
+IO_LOC "hpram_dq[0]"       p1-19;
+IO_LOC "hpram_dq[1]"       p1-18;
+IO_LOC "hpram_dq[2]"       p1-17;
+IO_LOC "hpram_dq[3]"       p1-16;
+IO_LOC "hpram_dq[4]"       p1-10;
+IO_LOC "hpram_dq[5]"       p1-9;
+IO_LOC "hpram_dq[6]"       p1-8;
+IO_LOC "hpram_dq[7]"       p1-7;
+
+// HDMI differential pairs (LVCMOS33D, Bank 2 = 3.3V)
+IO_LOC "tmds_clk_p" 28;
+IO_LOC "tmds_clk_n" 27;
+IO_LOC "tmds_d_p[0]" 30;
+IO_LOC "tmds_d_n[0]" 29;
+IO_LOC "tmds_d_p[1]" 32;
+IO_LOC "tmds_d_n[1]" 31;
+IO_LOC "tmds_d_p[2]" 35;
+IO_LOC "tmds_d_n[2]" 34;
+
+// Keyboard 74HC165 (Bank 1, 3.3V)
+// Header P7 positions 9/10/11 (count from HDMI end), shared with DVP camera
+IO_LOC "keyboard_pl" 41;
+IO_PORT "keyboard_pl" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=8 BANK_VCCIO=3.3;
+IO_LOC "keyboard_cp" 42;
+IO_PORT "keyboard_cp" IO_TYPE=LVCMOS33 PULL_MODE=NONE DRIVE=8 BANK_VCCIO=3.3;
+// q7 是 74HC165 的串行输出, 若排线未接/断开时必须读出 "松开"(高) 而不是
+// 随机值, 所以给输入脚加上拉.
+IO_LOC "keyboard_q7" 43;
+IO_PORT "keyboard_q7" IO_TYPE=LVCMOS33 PULL_MODE=UP BANK_VCCIO=3.3;
+
+// UART (optional debug) - P7 header positions 7/8
+IO_LOC "uart0_rxd" 39;
+IO_PORT "uart0_rxd" IO_TYPE=LVCMOS33;
+IO_LOC "uart0_txd" 40;
+IO_PORT "uart0_txd" IO_TYPE=LVCMOS33;

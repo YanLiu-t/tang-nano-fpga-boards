@@ -1,0 +1,16 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW1NR-9C" pn="GW1NR-LV9QN88PC6/I5">gw1nr9c-004</Device>
+    <FileList>
+        <File path="src/ tm7705_ctrl.v" type="file.verilog" enable="1"/>
+        <File path="src/HC595_Driver.v" type="file.verilog" enable="1"/>
+        <File path="src/HC595_display.v" type="file.verilog" enable="1"/>
+        <File path="src/pwm_led_ctrl.v" type="file.verilog" enable="1"/>
+        <File path="src/top_adc_led.v" type="file.verilog" enable="1"/>
+        <File path="src/voltage_calc.v" type="file.verilog" enable="1"/>
+        <File path="src/ADC_test.cst" type="file.cst" enable="1"/>
+    </FileList>
+</Project>
