@@ -45,7 +45,7 @@ tang-nano-fpga-boards/
 
 | Item | Detail |
 |---|---|
-| **FPGA Board** | Tang Nano 4K (GW1N-4C) / Tang Nano 9K (GW1N-9C) |
+| **FPGA Board** | Tang Nano 4K (GW1NSR-4C) / Tang Nano 9K (GW1NR-9) |
 | **IDE** | Gowin EDA |
 | **Language** | Verilog HDL |
 | **Download Tool** | Gowin Programmer |
