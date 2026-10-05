@@ -1,174 +1,157 @@
 # Tang Nano FPGA Board Verification Projects
 
-**This repo contains Verilog board verification projects for Gowin Tang Nano 4K and Tang Nano 9K, with constraint files (.cst), ready for synthesis and download.**
+![FPGA](https://img.shields.io/badge/FPGA-Gowin_4K_9K-009688?style=flat-square&logo=fpga) ![Stars](https://img.shields.io/github/stars/tt-520-cmd/tang-nano-fpga-boards?style=flat-square) ![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square) ![Verilog](https://img.shields.io/badge/Verilog-HDL-blue?style=flat-square)
 
-中文版：本仓库包含 Gowin Tang Nano 4K / Tang Nano 9K 的板级 Verilog 验证工程，
-含约束文件 (.cst)，可直接综合下载到 FPGA 开发板。
+<p align="center">
+  <img src="https://wiki.sipeed.com/assets/images/hardware/tang-nano-9k/tang_nano_9k_01.png" width="300" alt="Tang Nano 9K">
+  <br>
+  <strong>Tang Nano 9K (GW1NR-9)</strong>
+  <br><br>
+  <img src="https://wiki.sipeed.com/assets/images/hardware/tang-nano-4k/tang_nano_4k_01.png" width="300" alt="Tang Nano 4K">
+  <br>
+  <strong>Tang Nano 4K (GW1NSR-4C)</strong>
+</p>
 
 ---
 
-## 📁 Directory Structure
+## 📖 What's This / 这是什么
+
+**61 个 Verilog 工程** — Gowin Tang Nano 4K 和 9K 的板级验证项目，全部带 `.cst` 约束文件，可直接综合下载。
+
+61 ready-to-synthesize Verilog projects for Gowin Tang Nano 4K (GW1NSR-4C) and Tang Nano 9K (GW1NR-9). All include constraint files (`.cst`).
+
+---
+
+## 📁 Quick Start / 快速开始
+
+### 1. Install Gowin IDE / 安装高云 IDE
+
+下载地址：https://www.gowinsemi.com.cn/faqsoftware.aspx
+
+推荐版本：**Gowin EDA V1.9.11**（教育版免费）
+
+### 2. Clone & Open / 克隆并打开工程
+
+```bash
+git clone https://github.com/tt-520-cmd/tang-nano-fpga-boards.git
+```
+
+用 Gowin IDE 打开对应的 `.gprj` 工程文件。
+
+### 3. Synthesize / 综合
+
+在 Gowin IDE 中：
+1. 确认 `.cst` 约束文件中的 FPGA 型号与你的板子匹配
+2. 点击 **Run → Synthesis**（或按 F9）
+3. 等待综合完成
+
+### 4. Place & Route / 布局布线
+
+点击 **Run → Place & Route**（或按 F10）
+
+### 5. Download to Board / 下载到板子
+
+1. 用 USB-C 数据线连接开发板到电脑
+2. 打开 **Gowin Programmer**
+3. 点击 **Detect** 自动识别设备
+4. 选择 **Download Mode: Direct Download**（调试用）或 **Download to Flash**（永久存储）
+5. 选择综合生成的 `.fs` 文件
+6. 点击 **Download**
+
+---
+
+## 🛠️ Environment / 环境要求
+
+| Item | Detail |
+|---|---|
+| **FPGA Board** | Tang Nano 4K (GW1NSR-4C) / Tang Nano 9K (GW1NR-9) |
+| **IDE** | Gowin EDA V1.9.11 |
+| **Language** | Verilog HDL |
+| **Download Tool** | Gowin Programmer |
+| **Cortex-M3 Softcore** | GMD IDE（仅 Category 2 项目需要） |
+
+---
+
+## 📂 Directory Structure / 目录结构
 
 ```
 tang-nano-fpga-boards/
 ├── tang_nano_4k/
-│   ├── board-verilog-only/       # 纯 Verilog，无需 C 固件，可直接上板
-│   │   ├── tang_nano_4k_pong/           # Pong 乒乓球游戏（纯 Verilog）
-│   │   └── tang_nano_4k_uart_hdmi/      # UART 串口接收 + HDMI 显示
-│   └── board-verilog-with-c/     # Verilog + Cortex-M3 C 固件，软硬协同
-│       ├── pong_psram/                  # Pong + PSRAM + HDMI（含 C 固件 firmware/）
-│       ├── space_invaders/              # 太空入侵者游戏（含 C 固件 firmware/）
-│       └── uart_test/                   # UART 实验（含 C 固件 firmware/）
+│   ├── board-verilog-only/          # Pure Verilog, no C firmware needed
+│   │   ├── tang_nano_4k_pong/           # Pong game (pure Verilog)
+│   │   └── tang_nano_4k_uart_hdmi/      # UART RX + HDMI display
+│   └── board-verilog-with-c/        # Verilog + Cortex-M3 C firmware
+│       ├── pong_psram/                   # Pong + HyperRAM + HDMI
+│       ├── space_invaders/               # Space Invaders game
+│       └── uart_test/                    # UART experiment
 │
 ├── tang_nano_9k/
-│   ├── board-verification/       # 有 .cst 约束文件，可上板验证
-│   │   ├── led/                         # LED 流水灯/呼吸灯/按键/译码器等 (11个)
-│   │   ├── sensor/                      # DHT11/DS18B20/DS3231/ADC 等 (6个)
-│   │   ├── display/                     # RGB LCD/HDMI/红外/HC595 等 (11个)
-│   │   ├── communication/                # UART 收发 (2个)
-│   │   ├── game/                        # Pong 乒乓球游戏
-│   │   └── photo_display/               # UART + PSRAM + LCD/HDMI 三个子工程
-│   └── simulation-only/           # Only for simulation, no constraint files, cannot download to FPGA board.
-│       ├── logic_gates/                 # 分频器/数码管/边沿检测等
-│       ├── ip_cores/                    # PLL/FIFO/RAM/ROM IP 实验
-│       ├── communication/               # 以太网 ARP/ICMP/UDP, MDIO, 矩阵键盘
-│       ├── memory/                      # SD 卡, DDR3, DVI/OV5640
-│       ├── adc/                         # ADC128S102
-│       └── dds/                         # DDS 信号发生器
+│   ├── board-verification/          # With .cst files, ready for hardware
+│   │   ├── led/                          # LED (11 projects)
+│   │   ├── sensor/                       # Sensors (6 projects)
+│   │   ├── display/                      # Display & comm (11 projects)
+│   │   ├── communication/                # UART (2 projects)
+│   │   ├── game/                         # Pong game
+│   │   └── photo_display/                # UART + PSRAM + LCD/HDMI
+│   └── simulation-only/             # ⚠️ Simulation only, no .cst, cannot download
+│       ├── logic_gates/                  # Divider, counter, edge detect
+│       ├── ip_cores/                     # PLL, FIFO, RAM, ROM IP
+│       ├── communication/                # Ethernet ARP/ICMP/UDP, MDIO
+│       ├── memory/                       # SD card, DDR3, OV5640
+│       ├── adc/                          # ADC128S102
+│       └── dds/                          # DDS signal generator
 │
 ├── .gitignore
 ├── README.md
 └── LICENSE
 ```
 
-## 🛠️ Environment
+---
 
-| Item | Detail |
-|---|---|
-| **FPGA Board** | Tang Nano 4K (GW1NSR-4C) / Tang Nano 9K (GW1NR-9) |
-| **IDE** | Gowin EDA |
-| **Language** | Verilog HDL |
-| **Download Tool** | Gowin Programmer |
-| **Category 2 (Verilog + C)** | GMD IDE (Cortex-M3 软核 C 固件开发) |
+## 📋 Project Index / 工程索引
 
-## ⚠️ Notes
-
-- **simulation-only 目录**标注了 `Only for simulation, no constraint files, cannot download to FPGA board.`
-- C 固件中 `.o` / `.d` / `.bin` / `.elf` / `.hex` / `.map` / `Debug/` 编译产物已被 `.gitignore` 过滤
-- Gowin IDE 综合/布局布线中间文件 (`impl/`, `sim/` 等) 同样被 `.gitignore` 过滤
-- `* (1).*` 重名备份文件自动过滤（Gowin IDE 经常生成这种重复文件）
-
-## 📂 Project List
-
-### Tang Nano 4K · board-verilog-only (2)
+### 🟦 Tang Nano 4K — board-verilog-only（纯 Verilog，无需 C 固件）
 
 | Project | Description |
 |---|---|
-| `tang_nano_4k_pong` | Pong 乒乓球游戏，纯 Verilog，4K 板直接运行 |
-| `tang_nano_4k_uart_hdmi` | UART 串口接收数据 + HDMI 显示 |
+| `tang_nano_4k_pong` | Pong 乒乓球游戏 |
+| `tang_nano_4k_uart_hdmi` | UART 串口接收 + HDMI 显示 |
 
-### Tang Nano 4K · board-verilog-with-c (3) ⚠️ 需要 C 固件配合
+### 🟦 Tang Nano 4K — board-verilog-with-c（Verilog + C 固件）
 
-| Project | Description |
+| Project | Description | C Firmware |
+|---|---|---|
+| `pong_psram` | Pong + HyperRAM + HDMI | `firmware/` |
+| `space_invaders` | 太空入侵者游戏 | `firmware/` |
+| `uart_test` | UART 收发实验 | `firmware/` |
+
+### 🟩 Tang Nano 9K — board-verification（37 个，可上板验证）
+
+| Category | Projects |
 |---|---|
-| `pong_psram` | Pong 游戏 + HyperRAM + HDMI，C 固件在 `firmware/` 子目录 |
-| `space_invaders` | 太空入侵者游戏，Verilog 显示 + C 固件游戏逻辑 |
-| `uart_test` | UART 收发实验，C 固件在 `firmware/` 子目录 |
+| **LED** | flow_led, key_led, led_run, breath_led, led_ctrl, led_twinkle, mux2, decoder_3_8, key_filter, key_debounce, fpga_project_hello |
+| **Sensor** | DHT11, DHT11_chatgpt, ds18b20, tm1637_display, ds3231_RTC, ADC_test |
+| **Display** | RGB_LCD, RGB_LCD_display, hdmi_colorbar, hdmi_colorbar_test, hdmi_colorbar_gemini, hdmi_block_move, NEC_Transceiver, Remote_Key_Reader, HC595_Driver, test, hs_ad_da |
+| **UART** | uart_byte_tx, uart_byte_rx |
+| **Game** | pong_tang_nano_9k |
+| **Photo** | Photo_data_display_PSRAM_9k（3 个子工程） |
 
-### Tang Nano 9K · board-verification (37)
+### ⚠️ Tang Nano 9K — simulation-only（22 个，仅仿真）
 
-#### led/ — LED 基础实验 (11)
+> **Only for simulation, no constraint files, cannot download to FPGA board.**
 
-| Project | Description |
-|---|---|
-| `flow_led` | 8 位 LED 流水灯 |
-| `key_led` | 按键控制 LED |
-| `led_run` | 跑马灯 + 3-8 译码器 |
-| `breath_led` | PWM 呼吸灯 |
-| `led_ctrl` | LED 闪烁控制器 |
-| `led_twinkle` | LED 闪烁 |
-| `mux2` | 二选一数据选择器 |
-| `decoder_3_8` | 3-8 译码器 |
-| `key_filter` | 按键滤波消抖 |
-| `key_debounce` | 按键消抖 + 蜂鸣器 |
-| `fpga_project_hello` | 点灯入门工程 |
+divider_4, hex8, edge_test, PLL, FIFO, RAM_test, ROM_test, gowin_sp, ip_pll, ip_fifo, ip_2port_ram, eth_arp_test, eth_icmp_test, eth_udp_test, MDIO, remote_rcv, IO, sd_rw, ddr3, sd_bmp_hdmi, sd_bmp_lcd, ov5640_lcd, adc128s102, dds
 
-#### sensor/ — 传感器 (6)
+---
 
-| Project | Description |
-|---|---|
-| `DHT11` | DHT11 温湿度 + OLED 显示 |
-| `DHT11_chatgpt` | DHT11 另一实现版本 |
-| `ds18b20` | DS18B20 温度传感器 + 数码管 |
-| `tm1637_display` | TM1637 数码管 + DS3231 RTC |
-| `ds3231_RTC` | DS3231 实时时钟驱动 |
-| `ADC_test` | ADC 采样 + HC595 数码管显示 |
+## ⚠️ Notes / 注意事项
 
-#### display/ — 显示 + 通信外设 (11)
+- **simulation-only 目录** 无 `.cst` 约束文件，只能在 Gowin IDE 里看波形仿真，不能下载到板子
+- **Category 2 项目** 的 C 固件在 `firmware/` 子目录，用 GMD IDE 编译后通过 UART 烧进 Cortex-M3 软核
+- `.gitignore` 已过滤：Gowin IDE 综合输出 (`impl/`, `sim/`)、C 编译产物 (`.o`, `.bin`, `.elf`)、个人配置 (`*.gprj.user`)、PDF/EXE/ZIP
+- 每个工程文件夹内有对应的 `.cst` 约束文件
 
-| Project | Description |
-|---|---|
-| `RGB_LCD` | RGB LCD + VGA 时序 |
-| `RGB_LCD_display` | RGB LCD 显示 |
-| `hdmi_colorbar` | HDMI 彩条发生器 |
-| `hdmi_colorbar_test` | HDMI 测试信号 |
-| `hdmi_colorbar_gemini` | Gemini 版 HDMI |
-| `hdmi_block_move` | HDMI 方块移动动画 |
-| `NEC_Transceiver` | NEC 红外收发 |
-| `Remote_Key_Reader` | 红外遥控解码 |
-| `HC595_Driver` | 74HC595 移位寄存器驱动 |
-| `test` | HC595 + 红外 + 数码管综合实验 |
-| `hs_ad_da` | 高速 AD/DA 采集回放 |
-
-#### communication/ — UART (2)
-
-| Project | Description |
-|---|---|
-| `uart_byte_tx` | UART 串口发送 |
-| `uart_byte_rx` | UART 串口接收 |
-
-#### game/ — 游戏 (1)
-
-| Project | Description |
-|---|---|
-| `pong_tang_nano_9k` | Pong 乒乓球游戏（9K 板版） |
-
-#### photo_display/ — 图像显示 (1)
-
-| Project | Description |
-|---|---|
-| `Photo_data_display_PSRAM_9k` | 三个子工程：UART+PSRAM+LCD, UART+PSRAM+RGB, UART+PARAM+HDMI |
-
-### Tang Nano 9K · simulation-only (22)
-
-> ⚠️ **Only for simulation, no constraint files, cannot download to FPGA board.**
-
-| Project | Description |
-|---|---|
-| `divider_4` | 4 分频器 |
-| `hex8` | 8 位数码管扫描 |
-| `edge_test` | 边沿检测 |
-| `PLL` | PLL 锁相环实验 |
-| `FIFO` | 异步 FIFO 设计 |
-| `RAM_test` | BRAM IP 读写测试 |
-| `ROM_test` | ROM IP 读取测试 |
-| `gowin_sp` | 单端口 RAM IP |
-| `ip_pll` | PLL IP |
-| `ip_fifo` | FIFO IP |
-| `ip_2port_ram` | 双端口 RAM IP |
-| `eth_arp_test` | 以太网 ARP 协议 |
-| `eth_icmp_test` | 以太网 ICMP Ping |
-| `eth_udp_test` | 以太网 UDP |
-| `MDIO` | MDIO 总线读写 |
-| `remote_rcv` | 红外接收 |
-| `IO` | 矩阵键盘 + 数码管 + 拨码开关 |
-| `sd_rw` | SD 卡 SPI 读写 |
-| `ddr3` | DDR3 控制器 |
-| `sd_bmp_hdmi` | SD 卡 BMP + HDMI |
-| `sd_bmp_lcd` | SD 卡 BMP + LCD |
-| `ov5640_lcd` | OV5640 摄像头 + DDR3 + LCD |
-| `adc128s102` | ADC128S102 八通道 ADC |
-| `dds` | DDS 信号发生器 |
+---
 
 ## 📜 License
 
