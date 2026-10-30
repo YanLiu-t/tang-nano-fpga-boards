@@ -16,9 +16,9 @@
 
 ## 📖 What's This / 这是什么
 
-**61 个 Verilog 工程** — Gowin Tang Nano 4K 和 9K 的板级验证项目，全部带 `.cst` 约束文件，可直接综合下载。
+**62 个 Verilog 工程** — Gowin Tang Nano 4K 和 9K 的板级验证项目，全部带 `.cst` 约束文件，可直接综合下载。
 
-61 ready-to-synthesize Verilog projects for Gowin Tang Nano 4K (GW1NSR-4C) and Tang Nano 9K (GW1NR-9). All include constraint files (`.cst`).
+62 ready-to-synthesize Verilog projects for Gowin Tang Nano 4K (GW1NSR-4C) and Tang Nano 9K (GW1NR-9). All include constraint files (`.cst`).
 
 ---
 
@@ -82,6 +82,7 @@ tang-nano-fpga-boards/
 │   │   └── tang_nano_4k_uart_hdmi/      # UART RX + HDMI display
 │   └── board-verilog-with-c/        # Verilog + Cortex-M3 C firmware
 │       ├── pong_psram/                   # Pong + HyperRAM + HDMI
+│       ├── pong_tetris_3psram/           # 3-buffer Tetris + Pong + HDMI
 │       ├── space_invaders/               # Space Invaders game
 │       └── uart_test/                    # UART experiment
 │
@@ -122,6 +123,7 @@ tang-nano-fpga-boards/
 | Project | Description | C Firmware |
 |---|---|---|
 | `pong_psram` | Pong + HyperRAM + HDMI | `firmware/` |
+| `pong_tetris_3psram` | 三缓冲 320x240x8bpp 俄罗斯方块 + 乒乓（调色板 + 5 个硬件矩形） | `firmware/`（`pong.c` / `tetris.c` 二选一）、`firmware_wip/` |
 | `space_invaders` | 太空入侵者游戏 | `firmware/` |
 | `uart_test` | UART 收发实验 | `firmware/` |
 
@@ -148,6 +150,7 @@ divider_4, hex8, edge_test, PLL, FIFO, RAM_test, ROM_test, gowin_sp, ip_pll, ip_
 
 - **simulation-only 目录** 无 `.cst` 约束文件，只能在 Gowin IDE 里看波形仿真，不能下载到板子
 - **Category 2 项目** 的 C 固件在 `firmware/` 子目录，用 GMD IDE 编译后通过 UART 烧进 Cortex-M3 软核
+- `pong_tetris_3psram/firmware/` 里的 `pong.c` 和 `tetris.c` 各自带 `main()`，编译时只选其中一个；`firmware_wip/` 是未完成的俄罗斯方块代码，缺 `main.c`，不能独立编译
 - `.gitignore` 已过滤：Gowin IDE 综合输出 (`impl/`, `sim/`)、C 编译产物 (`.o`, `.bin`, `.elf`)、个人配置 (`*.gprj.user`)、PDF/EXE/ZIP
 - 每个工程文件夹内有对应的 `.cst` 约束文件
 
